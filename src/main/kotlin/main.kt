@@ -1,17 +1,17 @@
+import java.lang.IllegalArgumentException
+
 fun main(args: Array<String>) {
-    println(isLetter('q'))
-    println(isNotDigit('x'))
-    println(recognize('8'))
-    println("Kotlin" in "Java".."Scala")
-    println("Kotlin" in setOf("Java", "Scala"))
+    percentValidator(50)
+    percentValidator(150)
+    println(percentValidatorInExpr(50))
+    println(percentValidatorInExpr(150))
 }
 
-fun isLetter(letter: Char) = letter in 'a'..'z' || letter in 'A'..'Z'
-fun isNotDigit(letter: Char) = letter !in '0'..'9'
+fun percentValidator(num: Int) {
+    if (num !in 0..100) throw IllegalArgumentException("A percentage value mast be between 0 and 100: $num")
+}
 
-fun recognize(letter: Char) =
-    when (letter) {
-        in '0'..'9' ->                  "It`s a digit."
-        in 'a'..'z', in 'A'..'Z' ->     "It`s a letter."
-        else ->                         "I don`t know..."
-    }
+fun percentValidatorInExpr(num: Int): Boolean {
+    return if (num in 0..100) true
+    else throw IllegalArgumentException("A percentage value mast be between 0 and 100: $num")
+}
