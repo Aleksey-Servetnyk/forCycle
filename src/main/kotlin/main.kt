@@ -1,26 +1,32 @@
-import strings.joinToString
-import strings.joinToStringWithDefaultParameters
-import strings.performOperation
-import strings.reportOperationCount
+import extensionFunction.Button
+import extensionFunction.View
+import extensionFunction.showOff
+import extensionProperty.lastChar
+import strings.join
+import strings.lastChar
+import java.lang.StringBuilder
+import strings.lastCharWithoutThis as last
 
 fun main(args: Array<String>) {
-    val set = hashSetOf(1, 7, 53)
-    val list = arrayListOf(1, 7, 53)
-    val map = hashMapOf(1 to "one", 7 to "seven", 53 to "fifty-three")
+    println("Kotlin".lastChar())
+    println("Kotlin".last())
 
-    println(set.javaClass)
-    println(list.javaClass)
-    println(map.javaClass)
+    val list = listOf(1, 2 ,3)
+    println(list.joinToString(separator = "; ", prefix = "(", postfix = ")"))
 
-    println(list)
-    println(joinToString(list,"; ", "(", ")"))
-    println(joinToString(list,separator = "; ", prefix = "(", postfix = ")"))
-    println(joinToStringWithDefaultParameters(list))
-    println(joinToStringWithDefaultParameters(list, "| "))
-    println(joinToStringWithDefaultParameters(list, postfix = ";", prefix = "# "))
+    val list1 = arrayListOf(1, 2, 3)
+    println(list1.joinToString(" "))
 
-    performOperation()
-    reportOperationCount()
+    println(listOf("one", "two", "eight").join(" "))
 
+    val view: View = Button()
+    view.click()
+    view.showOff()
+
+    println("Kotlin".lastChar())
+
+    val sb = StringBuilder("Kotlin?")
+    sb.lastChar = '!'
+    println(sb)
 }
 
