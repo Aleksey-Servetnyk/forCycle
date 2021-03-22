@@ -1,6 +1,7 @@
-import java.io.BufferedReader
-import java.io.StringReader
-import java.lang.NumberFormatException
+import strings.joinToString
+import strings.joinToStringWithDefaultParameters
+import strings.performOperation
+import strings.reportOperationCount
 
 fun main(args: Array<String>) {
     val set = hashSetOf(1, 7, 53)
@@ -18,37 +19,8 @@ fun main(args: Array<String>) {
     println(joinToStringWithDefaultParameters(list, "| "))
     println(joinToStringWithDefaultParameters(list, postfix = ";", prefix = "# "))
 
+    performOperation()
+    reportOperationCount()
+
 }
 
-@JvmOverloads
-fun <T> joinToString(
-    collection: Collection<T>,
-    separator: String,
-    prefix: String,
-    postfix: String
-): String {
-    val result = StringBuilder(prefix)
-
-    for ((index, element) in collection.withIndex()) {
-        if (index > 0) result.append(separator)
-        result.append(element)
-    }
-    result.append(postfix)
-    return result.toString()
-}
-
-fun <T> joinToStringWithDefaultParameters(
-    collection: Collection<T>,
-    separator: String = ", ",
-    prefix: String = "",
-    postfix: String = ""
-): String {
-    val result = StringBuilder(prefix)
-
-    for ((index, element) in collection.withIndex()) {
-        if (index > 0) result.append(separator)
-        result.append(element)
-    }
-    result.append(postfix)
-    return result.toString()
-}
