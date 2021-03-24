@@ -1,12 +1,10 @@
-import localFunctions.User
+import interfaces.Button
 
 fun main(args: Array<String>) {
-
-    val user = User(1, "Bob", "")
-    user.saveUser3(user)
-    user.saveUser2(user)
-    user.saveUser1(user)
-    user.saveUser(user)
+    val button = Button()
+    button.showOff()
+    button.setFocus(true)
+    button.click()
 
 }
 
