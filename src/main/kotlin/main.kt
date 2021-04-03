@@ -1,14 +1,10 @@
-import initClasses.UserWithDefaultValue
+import interfaceProperties.PrivateUser
+import interfaceProperties.SubscribingUser
 
 fun main(args: Array<String>) {
-    val alice = UserWithDefaultValue("Alice")
-    println(alice.isSubscribed)
 
-    val bob = UserWithDefaultValue("Bob", false)
-    println(bob.isSubscribed)
-
-    val carol = UserWithDefaultValue("Carol", isSubscribed = false)
-    println(carol.isSubscribed)
+    println(PrivateUser("test@kotlinlang.org").nickname)
+    println(SubscribingUser("test@kotlinlang.org").nickname)
 
 }
 
