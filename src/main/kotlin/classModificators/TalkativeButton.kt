@@ -7,7 +7,8 @@ internal open class TalkativeButton : Focusable {
     protected fun whisper() = println("Let`s talk!")
 }
 
+/*
 fun TalkativeButton.giveSpeech() {
     yell()
     whisper()
-}
+}*/
