@@ -1,20 +1,18 @@
-import singleton441.CaseInsensitiveFileComparator
-import singleton441.Payroll
-import singleton441.Person
-import singleton441.PersonNew
-import java.io.File
+import companionObjects442.A
+import companionObjects442.User
+import companionObjects442.UserFab
 
 fun main(args: Array<String>) {
-    Payroll.allEmployees.add(Person("Nick", 5000))
-    println(Payroll.calculateSalary())
+    A.bar()
 
-    println(CaseInsensitiveFileComparator.compare(File("/User"), File("/user")))
+    val user = User("bob@csk.kr.ua")
+    println(user.nickname)
 
-    val files = listOf(File("/Z"), File("/a"))
-    println(files.sortedWith(CaseInsensitiveFileComparator))
-
-    val persons = listOf(PersonNew("Bob"), PersonNew(("Alice")))
-    println(persons.sortedWith(PersonNew.NameComparator))
-
+    val subscribingUser = UserFab.newSubscribingUser("bob1@csk.kr")
+    val facebookUser = UserFab.newFacebookUser(4)
+    println(subscribingUser.nickname)
+    println(facebookUser.nickname)
 }
+
+
 
