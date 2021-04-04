@@ -1,12 +1,14 @@
+import flatMapFlutten524.Book
 import lambdaCollections512.Person
 
 fun main(args: Array<String>) {
-    val people = listOf(Person("Alice", 31), Person("Bob", 29), Person("Carol", 31))
-    println(people.groupBy { it.age })
+    val strings = listOf("abc", "def")
+    println(strings.flatMap { it.toList() })
 
-    val list = listOf("a", "ab", "b")
-    println(list.groupBy(String::first))
-
+    val books = listOf(Book("Thursday Next", listOf("Jasper Fforde")),
+        Book("Mort", listOf("Terry Pratchet")),
+        Book("Good Omens", listOf("Terry Pratchet", "Neil Gaiman")))
+    println(books.flatMap { it.authors }.toSet())
 }
 
 
