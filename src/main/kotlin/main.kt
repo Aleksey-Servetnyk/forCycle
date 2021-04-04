@@ -1,17 +1,13 @@
-import companionObjects442.A
-import companionObjects442.User
-import companionObjects442.UserFab
+import companionObjects442.Person
+import companionObjects442.PersonExtended
+import companionObjects442.fromJSON
 
 fun main(args: Array<String>) {
-    A.bar()
+    val person = Person.Companion.fromJSON("{name: 'Dmitriy'}")
+    println(person.name)
 
-    val user = User("bob@csk.kr.ua")
-    println(user.nickname)
-
-    val subscribingUser = UserFab.newSubscribingUser("bob1@csk.kr")
-    val facebookUser = UserFab.newFacebookUser(4)
-    println(subscribingUser.nickname)
-    println(facebookUser.nickname)
+    val p = PersonExtended.fromJSON("Alexey@Servetnyk")
+    println("${p.firstName} ${p.lastName}")
 }
 
 
