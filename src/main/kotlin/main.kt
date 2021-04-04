@@ -1,13 +1,14 @@
-import companionObjects442.Person
-import companionObjects442.PersonExtended
-import companionObjects442.fromJSON
+import lambdaCollections512.Person
+import lambdaCollections512.findTheOldest
 
 fun main(args: Array<String>) {
-    val person = Person.Companion.fromJSON("{name: 'Dmitriy'}")
-    println(person.name)
 
-    val p = PersonExtended.fromJSON("Alexey@Servetnyk")
-    println("${p.firstName} ${p.lastName}")
+    val people = listOf(Person("Alice", 29), Person("Bob", 31))
+
+    findTheOldest(people)
+
+    println(people.maxByOrNull { it.age })
+    println(people.maxByOrNull(Person::age))
 }
 
 
