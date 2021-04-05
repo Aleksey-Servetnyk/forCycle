@@ -12,6 +12,14 @@ fun main(args: Array<String>) {
 
     val filterBooks = books.asSequence().map(Book::title).filter { it.startsWith("T") }.toList()
     println(filterBooks)
+
+    listOf(1, 2, 3, 4).asSequence().map { print("map($it) "); it * it }.filter { print("filter($it) "); it % 2 == 0 }.toList()
+
+    println(listOf(1, 2, 3, 4).asSequence().map { it * it }.find { it > 3 })
+
+    val people = listOf(Person("Alice", 29), Person("Bob", 31), Person("Charles", 31), Person("Dan", 21))
+    println(people.asSequence().map(Person::name).filter { it.length < 4 }.toList())
+    println(people.asSequence().filter { it.name.length < 4 }.map(Person::name).toList())
 }
 
 
