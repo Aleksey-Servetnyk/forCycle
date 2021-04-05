@@ -1,5 +1,7 @@
+import creatingSequences532.isInsideHiddenDirectory
 import flatMapFlutten524.Book
 import lambdaCollections512.Person
+import java.io.File
 
 fun main(args: Array<String>) {
     val strings = listOf("abc", "def")
@@ -20,6 +22,13 @@ fun main(args: Array<String>) {
     val people = listOf(Person("Alice", 29), Person("Bob", 31), Person("Charles", 31), Person("Dan", 21))
     println(people.asSequence().map(Person::name).filter { it.length < 4 }.toList())
     println(people.asSequence().filter { it.name.length < 4 }.map(Person::name).toList())
+
+    val naturalNumbers = generateSequence(0) { it + 1 }
+    val numbersTo100 = naturalNumbers.takeWhile { it <= 100 }
+    println(numbersTo100.sum())
+
+    val file = File("c:\\Users\\svtk\\.HiddenDir\\a.txt")
+    println(file.isInsideHiddenDirectory())
 }
 
 
