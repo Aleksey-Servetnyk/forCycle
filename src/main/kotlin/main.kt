@@ -9,6 +9,9 @@ fun main(args: Array<String>) {
         Book("Mort", listOf("Terry Pratchet")),
         Book("Good Omens", listOf("Terry Pratchet", "Neil Gaiman")))
     println(books.flatMap { it.authors }.toSet())
+
+    val filterBooks = books.asSequence().map(Book::title).filter { it.startsWith("T") }.toList()
+    println(filterBooks)
 }
 
 
